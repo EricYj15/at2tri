@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de revisão</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Produto</th>
+                  <th scope="col">Validade</th>
+                  <th scope="col" class="text-center">Ações</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% for  (var n=0; n<resultado.length;n++){%>
+                <tr>
+
+                  <th><%=resultado[n].produto%></th>
+                  <td> <div> Data: <%=resultado[n].validade%></div></td>
+
+                  <td><button class=" btn btn-outline-success">Consumido</button> 
+                    <button class="btn btn-outline-danger">Vencido</button>
+                    <input type="button" value="Excluir" class="btn btn-outline-danger"onclick="">
+                    <input type="button" value="Alterar" class="btn btn-outline-warning"onclick="(window.location.href='/alterar?id=<%=resultado[n]._id%>')"></td>
+
+                </tr>
+                <%}%>
+              </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <form action="" method="post" class="form-control">
+            <h3 class="text-center">Cadastro</h3>
+            <input type="text" name="produto" placeholder="Produto" class="form-control" id="">
+            <input type="date" name="validade" placeholder="Validade" class="form-control" id="">
+            <input type="submit" value="Salvar" class="btn btn-warning form-control" >
+        </form>
+    </div>
+</body>
+</html>
